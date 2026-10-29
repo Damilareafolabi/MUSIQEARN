@@ -1,0 +1,6 @@
+{
+  "name": "MUSIZEARN",
+  "description": "Global music gaming and rewards platform where players guess songs, compete in music battles, discover emerging artists, and earn rewards.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

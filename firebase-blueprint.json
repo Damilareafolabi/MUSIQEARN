@@ -1,0 +1,244 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Represents an authenticated player profile in MUSIZEARN.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Unique Google user ID matching request.auth.uid"
+        },
+        "username": {
+          "type": "string",
+          "description": "Public stage name or gaming handle"
+        },
+        "email": {
+          "type": "string",
+          "description": "Account email address"
+        },
+        "country": {
+          "type": "string",
+          "description": "Player home country"
+        },
+        "countryFlag": {
+          "type": "string",
+          "description": "Country flag emoji"
+        },
+        "level": {
+          "type": "integer",
+          "description": "Player experience level"
+        },
+        "xp": {
+          "type": "integer",
+          "description": "Accumulated experience points"
+        },
+        "musizCoins": {
+          "type": "integer",
+          "description": "Earned reward coins balance"
+        },
+        "currentStreak": {
+          "type": "integer",
+          "description": "Consecutive days/matches streak"
+        },
+        "bestStreak": {
+          "type": "integer",
+          "description": "All time highest streak"
+        },
+        "totalGamesPlayed": {
+          "type": "integer",
+          "description": "Total matches played"
+        },
+        "totalWins": {
+          "type": "integer",
+          "description": "Total tournament or match victories"
+        },
+        "rankTitle": {
+          "type": "string",
+          "description": "Achieved musical gaming title"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when account was created"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when profile was last modified"
+        }
+      },
+      "required": ["userId", "username", "level", "xp", "musizCoins", "currentStreak", "totalGamesPlayed", "totalWins"]
+    },
+    "LeaderboardEntry": {
+      "title": "Leaderboard Entry",
+      "description": "Public score record displayed on national and worldwide arena leaderboards.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "ID of player holding this leaderboard score"
+        },
+        "username": {
+          "type": "string",
+          "description": "Display name of player"
+        },
+        "country": {
+          "type": "string",
+          "description": "Country represented"
+        },
+        "flag": {
+          "type": "string",
+          "description": "Flag emoji"
+        },
+        "score": {
+          "type": "integer",
+          "description": "Accumulated weekly tournament points"
+        },
+        "streak": {
+          "type": "integer",
+          "description": "Current active win streak"
+        },
+        "badge": {
+          "type": "string",
+          "description": "Rank emblem or medal"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last score update timestamp"
+        }
+      },
+      "required": ["userId", "username", "country", "flag", "score", "streak"]
+    },
+    "BattleSession": {
+      "title": "1v1 Music Battle Session",
+      "description": "Multiplayer match instance between two challengers.",
+      "type": "object",
+      "properties": {
+        "battleId": {
+          "type": "string",
+          "description": "Unique battle session identifier"
+        },
+        "creatorUserId": {
+          "type": "string",
+          "description": "User ID of creator"
+        },
+        "creatorUsername": {
+          "type": "string",
+          "description": "Creator display name"
+        },
+        "creatorScore": {
+          "type": "integer",
+          "description": "Creator accumulated round score"
+        },
+        "opponentUserId": {
+          "type": "string",
+          "description": "User ID of accepting challenger"
+        },
+        "opponentUsername": {
+          "type": "string",
+          "description": "Challenger display name"
+        },
+        "opponentScore": {
+          "type": "integer",
+          "description": "Challenger accumulated round score"
+        },
+        "status": {
+          "type": "string",
+          "description": "Current match state: WAITING, IN_PROGRESS, COMPLETED"
+        },
+        "inviteCode": {
+          "type": "string",
+          "description": "Shareable challenge code"
+        },
+        "winnerId": {
+          "type": "string",
+          "description": "Winning player user ID"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp"
+        }
+      },
+      "required": ["battleId", "creatorUserId", "creatorUsername", "status", "inviteCode"]
+    },
+    "ArtistSubmission": {
+      "title": "Artist Submission",
+      "description": "Music submission from independent artist seeking verification.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Submission document ID"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Uploader user ID"
+        },
+        "artistName": {
+          "type": "string",
+          "description": "Stage or band name"
+        },
+        "songTitle": {
+          "type": "string",
+          "description": "Song title"
+        },
+        "genre": {
+          "type": "string",
+          "description": "Music genre"
+        },
+        "releaseYear": {
+          "type": "string",
+          "description": "Year of release"
+        },
+        "streamingLink": {
+          "type": "string",
+          "description": "Link to Audiomack, Spotify, Apple Music"
+        },
+        "rightsOwnershipConfirmed": {
+          "type": "boolean",
+          "description": "Affirmation of 100% copyright ownership"
+        },
+        "status": {
+          "type": "string",
+          "description": "Moderation status: PENDING_REVIEW, APPROVED_LIVE, REJECTED"
+        },
+        "submittedDate": {
+          "type": "string",
+          "description": "Date string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Submission timestamp"
+        }
+      },
+      "required": ["id", "userId", "artistName", "songTitle", "rightsOwnershipConfirmed", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "Private and authenticated user profiles"
+    },
+    "/leaderboard/{entryId}": {
+      "schema": { "$ref": "#/entities/LeaderboardEntry" },
+      "description": "Public global and regional rankings"
+    },
+    "/battles/{battleId}": {
+      "schema": { "$ref": "#/entities/BattleSession" },
+      "description": "Multiplayer 1v1 battle rooms"
+    },
+    "/artist_submissions/{submissionId}": {
+      "schema": { "$ref": "#/entities/ArtistSubmission" },
+      "description": "Submitted songs for human rights moderation"
+    }
+  }
+}
